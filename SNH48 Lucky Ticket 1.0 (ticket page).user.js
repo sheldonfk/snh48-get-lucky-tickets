@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SNH48 Lucky Ticket 1.0 (ticket page)
 // @namespace    http://tampermonkey.net/
-// @version      0.4
+// @version      1.0
 // @description  SNH48新官方商城捡漏脚本（票务页面刷票）
 // @author       TangHH
 // @match        http://shop.48.cn/tickets/item/*
@@ -12,7 +12,7 @@
 
 (function() {
     'use strict';
-    //设置购买座位  2VIP 3普 4站，多票种','隔开，需加双引号
+    //设置可以购买的票种  2VIP 3普 4站，多票种','隔开，需加双引号
     var S_seattype = "2,3,4";
     //设置刷票间隔（单位：毫秒）过小会被封IP，100以上
     var looptime = 3000;
@@ -102,7 +102,7 @@
                         window.location.href = result.ReturnObject;
                     }
                 else
-                    setTimeout(function(){checkTicket(ticketId,num,seatType,brandId,0);},2000);
+                    setTimeout(function(){checkTicket(ticketId,num,seatType,brandId);},2000);
             },
             error: function (e) {
                 $('.callTime').html(dateToTime(new Date()));
@@ -112,7 +112,7 @@
         });
     }
 
-    function checkTicket(ticketId,num,seatType,brandId,times){
+    function checkTicket(ticketId,num,seatType,brandId){
         $.ajax({
             url: "/TOrder/tickCheck",
             type: "GET",
@@ -130,7 +130,7 @@
                 else
                     switch(result.ErrorCode){
                         case "wait":
-                            setTimeout(function(){checkTicket(ticketId,num,seatType,brandId,times+1);},5000);
+                            setTimeout(function(){checkTicket(ticketId,num,seatType,brandId);},5000);
                             break;
                         case "success":
                             $('.errorCode').after('&emsp; 订单号：<span style="color:#E53333;">' + result.ReturnObject + '</span>');
