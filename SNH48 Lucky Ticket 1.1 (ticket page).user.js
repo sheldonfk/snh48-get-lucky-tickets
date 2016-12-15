@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SNH48 Lucky Ticket 1.1 (ticket page)
 // @namespace    https://github.com/TangHHH/snh48-get-lucky-tickets
-// @version      1.1
+// @version      1.1.1
 // @description  SNH48新官方商城捡漏脚本（票务页面刷票）
 // @author       TangHHH
 // @match        http://shop.48.cn/tickets/item/*
@@ -57,12 +57,14 @@
                 layer.msg("请选择捡漏票种");
             }else if(looptime<100){
                 layer.msg("刷票间隔过小");
-            }else{
+            }else if(looptime>=100){
                 $('.ISeatType').attr('disabled',true);
                 $('#ILoopTime').attr('disabled',true);
                 L_state =true;
                 $('#Tloop').html('停止捡漏');
                 loopTickets();
+            }else{
+                layer.msg("请输入正确的刷票间隔");
             }
         }
     });
