@@ -29,9 +29,9 @@
 
     $('#buy').after('<a href="javascript:void(0);" id="Tloop" class="ma_r10">开始捡漏</a>');
     $('#Tloop').attr("style","color:#FFF; padding:5px 10px; background:#ffbb00; display:block; border-radius: 5px; border:1px solid #ffbb00; float:left;");
-    $('li:eq(2)',$('.i_sel:eq(0)')).after('<li>捡漏票种：VIP坐票：<input type="checkbox" class="ISeatType" value="2">' +
-                                          '&nbsp;普通坐票：<input type="checkbox" class="ISeatType" value="3">' +
-                                          '&nbsp;普通站票：<input type="checkbox" class="ISeatType" value="4"></li>' +
+    $('li:eq(2)',$('.i_sel:eq(0)')).after('<li>捡漏票种：<input type="checkbox" class="ISeatType" value="2">VIP坐票' +
+                                          '&emsp; <input type="checkbox" class="ISeatType" value="3">普通坐票' +
+                                          '&emsp; <input type="checkbox" class="ISeatType" value="4">普通站票</li>' +
                                          '<li>刷票间隔：<input type="text" id="ILoopTime" size="4" style="text-align:right">ms</li>');
     $('#ILoopTime').val(looptime);
 
