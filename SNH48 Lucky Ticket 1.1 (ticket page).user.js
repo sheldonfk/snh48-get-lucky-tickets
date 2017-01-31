@@ -3,7 +3,7 @@
 // @namespace    https://github.com/TangHHH/snh48-get-lucky-tickets
 // @version      1.1.1
 // @description  SNH48新官方商城捡漏脚本（票务页面刷票）
-// @author       TangHHH
+// @author       TangHHH1
 // @match        https://shop.48.cn/tickets/item/*
 // @grant        none
 // ==/UserScript==
